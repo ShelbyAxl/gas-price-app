@@ -7,7 +7,7 @@ const conn = {
 export const  ConnectionDB = async () => {
   if (conn.isConnected) return;
   const connectDB = await connect(
-    "mongodb+srv://admin:root@gaspricedb.exw5njc.mongodb.net/?retryWrites=true&w=majority"
+    "mongodb+srv://admin:root@gasprice-db.uh2jnvj.mongodb.net/?retryWrites=true&w=majority"
   );
   conn.isConnected = connectDB.connections[0].readyState;
 }
