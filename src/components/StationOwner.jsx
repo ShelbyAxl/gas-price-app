@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Edit from "@/images/Edit.png";
+import Edit from "@/images/edit.png";
 
 function StationOwner({ station }) {
   return (
