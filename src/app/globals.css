@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +24,51 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: #FFE672;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: #FFFFFF;
+    --background-start-rgb: #111111;
+  }
+}
+
+body {
+  color: var(--foreground-rgb);
+  background-color: var(--background-start-rgb);
+}
+
+/* Para navegadores basados en WebKit (Google Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de scroll */
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-600; /* Color del pulgar (barra móvil) */
+  border-radius: 6px; /* Bordes redondeados del pulgar */
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-800; /* Color del fondo de la barra de scroll */
+  border-radius: 6px;
+}
+
+/* Para Internet Explorer */
+/* Nota: las siguientes reglas no funcionarán en navegadores basados en WebKit */
+::-ms-scrollbar {
+  width: 12px; /* Ancho de la barra de scroll */
+}
+
+::-ms-scrollbar-thumb {
+  background-color: #3498db; /* Color del pulgar (barra móvil) */
+  border-radius: 6px; /* Bordes redondeados del pulgar */
+}
+
+::-ms-scrollbar-track {
+  background-color: #f1f1f1; /* Color del fondo de la barra de scroll */
 }
