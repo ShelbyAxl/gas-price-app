@@ -155,7 +155,7 @@ export default function StationFormPage() {
           <div>
             <button
               type="submit"
-              className="bg-green-700 py-2 px-6 m-3 rounded-md hover:bg-green-600 transition-all"
+              className="bg-green-700 py-2 px-6 m-2 rounded-md hover:bg-green-600 transition-all"
             >
               {params.id ? "Update" : "Save"}
             </button>
@@ -171,7 +171,7 @@ export default function StationFormPage() {
           </div>
           <div>
             <Link
-              className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 rounded-md flex my-3"
+              className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 mx-2 my-3 rounded-md flex"
               href="/dashboard"
             >
               Cancel
