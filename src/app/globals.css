@@ -28,7 +28,7 @@ body {
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: #FFE672;
+  --background-start-rgb: #403F4C;
 }
 
 @media (prefers-color-scheme: dark) {
