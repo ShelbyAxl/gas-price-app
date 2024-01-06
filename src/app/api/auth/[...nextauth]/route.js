@@ -54,6 +54,8 @@ export const authOptions = {
       return session;
     }
   },
+
+  secret: "40219da3e8aa469e4b0ec9381cf767cf"
 };
 
 const handler = NextAuth(authOptions);
