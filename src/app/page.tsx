@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import Station from '@/models/station'
 import { ConnectionDB } from '@/libs/mongoose'
 import StationCard from '@/components/StationCard'
+import  "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "GasPrice | Home",
@@ -17,7 +19,7 @@ async function loadStation (){
 async function HomePage() {
   const stations = await loadStation()
   return (
-    <div className='grid grid-cols-3 gap-3'>
+    <div className='grid grid-cols-1 gap-3 lg:grid-cols-3'>
       {
         stations.map((station) =>(
           <StationCard station={station} key={station._id} />
