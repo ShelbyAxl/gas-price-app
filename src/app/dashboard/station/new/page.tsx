@@ -2,10 +2,11 @@
 import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 export default function StationFormPage() {
   const { data: session, status } = useSession();
-  let user:any = session?.user;
+  let user: any = session?.user;
 
   let userId = user.id;
 
@@ -44,7 +45,7 @@ export default function StationFormPage() {
       });
       router.push("/dashboard");
       router.refresh();
-    } catch (error:any) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };
@@ -150,19 +151,33 @@ export default function StationFormPage() {
             />
           </div>
         </div>
-        <button
-          type="submit"
-          className="bg-green-700 py-2 px-6 m-3 rounded-md hover:bg-green-600 transition-all"
-        >
-          {params.id ? "Update" : "Save"}
-        </button>
-        <button
-          className=" bg-red-500 hover:bg-red-600 transition-colors py-2 px-6 rounded-md"
-          onClick={deleteStation}
-          type="button"
-        >
-          Delete
-        </button>
+        <div className="flex justify-between">
+          <div>
+            <button
+              type="submit"
+              className="bg-green-700 py-2 px-6 m-3 rounded-md hover:bg-green-600 transition-all"
+            >
+              {params.id ? "Update" : "Save"}
+            </button>
+            <button
+              className=" bg-red-500 hover:bg-red-600 transition-colors py-2 px-6 rounded-md"
+              onClick={deleteStation}
+              type="button"
+            >
+              Delete
+            </button>
+          </div>
+          <div>
+            {params.id && (
+              <Link
+                className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 rounded-md flex my-3"
+                href="/dashboard"
+              >
+                Cancel
+              </Link>
+            )}
+          </div>
+        </div>
       </form>
     </div>
   );
