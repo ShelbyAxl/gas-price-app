@@ -21,7 +21,6 @@ async function Navbar() {
               <li className="px-2 py-5">
                 <Link href={"/dashboard"}> Dashboard </Link>
               </li>
-              <p className="py-5">|</p>
               <li className="px-2 py-5">
                 <SignOut>SignOut</SignOut>
               </li>
@@ -31,13 +30,11 @@ async function Navbar() {
               <li className="px-2 py-5">
                 <Link href={"/auth/login"}> Sign in </Link>
               </li>
-              <p className="py-5">|</p>
               <li className="px-2 py-5">
                 <Link href={"/auth/register"}> Sign up </Link>
               </li>
             </>
           )}
-          <p className="py-5">|</p>
           <li className="px-2 py-5">
             <Link href={"/about"}> About us </Link>
           </li>
