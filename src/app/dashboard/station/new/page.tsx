@@ -159,23 +159,23 @@ export default function StationFormPage() {
             >
               {params.id ? "Update" : "Save"}
             </button>
-            <button
-              className=" bg-red-500 hover:bg-red-600 transition-colors py-2 px-6 rounded-md"
-              onClick={deleteStation}
-              type="button"
-            >
-              Delete
-            </button>
+            {params.id && (
+              <button
+                className=" bg-red-500 hover:bg-red-600 transition-colors py-2 px-6 rounded-md"
+                onClick={deleteStation}
+                type="button"
+              >
+                Delete
+              </button>
+            )}
           </div>
           <div>
-            {params.id && (
-              <Link
-                className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 rounded-md flex my-3"
-                href="/dashboard"
-              >
-                Cancel
-              </Link>
-            )}
+            <Link
+              className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 rounded-md flex my-3"
+              href="/dashboard"
+            >
+              Cancel
+            </Link>
           </div>
         </div>
       </form>

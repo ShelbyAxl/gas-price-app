@@ -4,8 +4,8 @@ import GasStation from "@/images/gas-station.png";
 
 function AboutPage() {
   return (
-    <div className="h-[calc(100vh-12rem)] flex items-center">
-      <div className="px-10 flex flex-col gap-y-10 items-center">
+    <div className="h-[calc(100vh-12rem)] flex flex-col lg:flex-row items-center">
+      <div className="px-10 flex flex-col gap-y-10 items-center mb-10 lg:mb-0 ">
         <Image src={GasStation} width={300} height={300} alt="" />
         <h1 className="text-6xl w-[28rem]">Quienes somos?</h1>
       </div>
