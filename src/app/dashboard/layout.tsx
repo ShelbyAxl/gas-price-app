@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import SignOut from "@/components/SignOut";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 
 export const metadata: Metadata = {
-  title: "GasPrice | Home",
+  title: "GasPrice | Dashboard",
   description: "App con los ultimos precios de la gasolina",
 };
 
