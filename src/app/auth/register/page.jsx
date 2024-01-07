@@ -36,7 +36,7 @@ function RegisterPage() {
   return (
     <div className="h-[calc(100vh-9rem)] flex justify-center items-center">
       <form onSubmit={ onSubmit } className="flex flex-col w-3/12 min-w-72 gap-1">
-        <h1 className="font-bold text-4xl">Sing up</h1>
+        <h1 className="font-bold text-4xl">Sign up</h1>
 
         {
           error && (

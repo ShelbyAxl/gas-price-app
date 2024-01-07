@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GasPrice | Sing up",
+  title: "GasPrice | Sign up",
   description: "App con los ultimos precios de la gasolina",
 };
 
