@@ -8,10 +8,10 @@ function StationOwner({ station }) {
       <div className="flex flex-col">
         <h3 className="font-bold text-lg"> {station.stationName} </h3>
         <div className="flex gap-10">
-          <h1 className=" text-4xl py-3 text-green-600">
+          <h1 className="lg:text-4xl text-2xl py-3 text-green-600">
             $ {station.gasPriceGreen}
           </h1>
-          <h1 className=" text-4xl py-3 text-red-600">
+          <h1 className="lg:text-4xl text-2xl py-3 text-red-600">
             $ {station.gasPriceRed}
           </h1>
         </div>
