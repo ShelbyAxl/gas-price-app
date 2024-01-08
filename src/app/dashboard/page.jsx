@@ -25,15 +25,15 @@ async function DashboardPage() {
   const stations = await loadStation();
 
   return (
-    <div className="flex justify-between h-screen">
-      <div className="flex flex-col w-2/12 gap-y-3 items-center justify-center">
+    <div className="flex flex-col lg:flex-row justify-between h-screen">
+      <div className="flex flex-col lg:w-2/12 gap-y-3 items-center justify-center">
         <Link href="/dashboard/station/new">
           <Image src={Add} width={50} height={50} alt="" />
         </Link>
         <p>Add station</p>
       </div>
       {stations.length != 0 ? (
-        <div className="px-10 py-3 gap-y-2 w-10/12 overflow-y-scroll overflow-x-hidden h-[24rem]">
+        <div className="px-10 py-3 gap-y-2 lg:w-11/12 overflow-y-scroll overflow-x-hidden h-[24rem]">
           {stations.map((station) => (
             <StationOwner station={station} key={station._id} />
           ))}

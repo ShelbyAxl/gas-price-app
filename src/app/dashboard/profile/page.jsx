@@ -17,7 +17,7 @@ async function ProfilePage() {
   const user = await loadStation();
 
   return (
-    <div className="flex flex-col w-7/12 p-8">
+    <div className="flex flex-col lg:w-7/12 p-8">
       <label htmlFor="username">Username:</label>
       <input
         className="bg-slate-800 px-4 py-3 rounded-md"

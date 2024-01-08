@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
 
   return (
-    <div className="container">
-      <div className="flex bg-zinc-950 rounded-lg overflow-hidden py-8 h-[calc(100vh-9rem)] max-h-[calc(40rem)] ">
+    <div className="my-6 mx-4 lg:w-[calc(100vw-2rem)] w-[calc(100vw-2rem)]">
+      <div className="flex bg-zinc-950 rounded-lg overflow-hidden py-8 h-[calc(100vh-9rem)] max-h-[calc(40rem)]">
         <section className="flex flex-col w-[5rem] lg:w-[20rem] justify-center lg:justify-normal gap-4 py-5 border-r-2 border-slate-600"> 
           <h1 className="py-4 px-8 text-4xl text-center lg:block hidden"> Dashboard </h1>
           <ul className="py-10 lg:py-0">

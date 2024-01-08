@@ -17,12 +17,13 @@ function StationOwner({ station }) {
         </div>
         <p> {station.address} </p>
       </div>
-      <div className="flex flex-wrap content-center gap-x-3 px-3">
+      <div className="flex flex-wrap content-center gap-x-3 lg:px-3">
         <Link
           href={`dashboard/station/${station._id}`}
-          className="p-2 rounded-md hover:bg-slate-700 transition-all"
+          className="lg:p-2 rounded-md hover:bg-slate-700 transition-all"
         >
           <Image
+          className=""
             src={Edit}
             width={50}
             height={50}

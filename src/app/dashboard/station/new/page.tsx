@@ -96,7 +96,7 @@ export default function StationFormPage() {
         {params.id ? "Update" : "New"} Station
       </h1>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-x-2">
+        <div className="grid lg:grid-cols-2 gap-x-2">
           <div className="flex flex-col p-2">
             <label htmlFor="stationName">Station name:</label>
             <input
@@ -151,7 +151,7 @@ export default function StationFormPage() {
             />
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-x-4">
           <div>
             <button
               type="submit"
@@ -171,7 +171,7 @@ export default function StationFormPage() {
           </div>
           <div>
             <Link
-              className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 mx-2 my-3 rounded-md flex"
+              className="bg-yellow-500 hover:bg-yellow-600 transition-colors py-2 px-6 mx-2 my-2 rounded-md flex"
               href="/dashboard"
             >
               Cancel
