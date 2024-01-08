@@ -5,16 +5,16 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 export default function StationFormPage() {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   let user: any = session?.user;
 
-  let userId = user.id;
+  let userId: any = user?.id;
 
   const router = useRouter();
   const params = useParams();
   const [newStation, setNewStation] = useState({
     stationName: "",
-    ownerId: userId,
+    ownerId: user?.id,
     address: "",
     phoneNumber: "",
     gasPriceGreen: "",
@@ -88,7 +88,7 @@ export default function StationFormPage() {
     if (params.id) {
       getStation();
     }
-  }, []);
+  });
 
   return (
     <div className="container">
