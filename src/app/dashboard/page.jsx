@@ -26,7 +26,7 @@ async function DashboardPage() {
 
   return (
     <div className="flex flex-col lg:flex-row justify-between h-screen">
-      <div className="flex flex-col lg:w-2/12 gap-y-3 items-center justify-center">
+      <div className="flex flex-col lg:w-2/12 gap-y-1 items-center justify-center">
         <Link href="/dashboard/station/new">
           <Image src={Add} width={50} height={50} alt="" />
         </Link>
