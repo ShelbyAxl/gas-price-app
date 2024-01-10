@@ -128,8 +128,8 @@ export default function StationFormPage() {
         </h1>
         <div className="grid lg:grid-cols-2 gap-x-2">
           <div className="flex flex-col p-2">
-            <label htmlFor="stationName">Station name:</label>
             <PopupMessage status={popup} request={request}></PopupMessage>
+            <label htmlFor="stationName">Station name:</label>
             <input
               type="text"
               value={newStation.stationName}
