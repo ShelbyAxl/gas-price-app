@@ -77,7 +77,7 @@ export async function PUT(request, { params }) {
     if (anotherName())
       return NextResponse.json(
         {
-          message: "Station already exist!",
+          message: "Station name already used!",
         },
         {
           status: 400,
@@ -94,7 +94,7 @@ export async function PUT(request, { params }) {
     if (anotherAddress())
       return NextResponse.json(
         {
-          message: "Address already exist!",
+          message: "Address already used!",
         },
         {
           status: 400,
@@ -111,7 +111,7 @@ export async function PUT(request, { params }) {
     if (anotherPhone())
       return NextResponse.json(
         {
-          message: "Phone station already exist!",
+          message: "Phone station already used!",
         },
         {
           status: 400,
