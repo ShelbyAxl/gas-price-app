@@ -2,6 +2,7 @@
 import { useParams, useRouter } from "next/navigation";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { useSession } from "next-auth/react";
+import PopupMessage from "@/components/PopupMessage";
 import Link from "next/link";
 
 export default function StationFormPage() {
@@ -20,8 +21,18 @@ export default function StationFormPage() {
     gasPriceGreen: "",
     gasPriceRed: "",
   });
+  const [popup, setPopup] = useState("hidden");
+
+  const request = (request: boolean) => {
+    if (request)deleteStation();
+    else setPopup("hidden");
+  };
 
   const [error, setError] = useState("");
+
+  const confirmDelete = () => {
+    setPopup("block");
+  };
 
   const getStation = async () => {
     const res = await fetch(`/api/station/${params.id}`);
@@ -81,13 +92,11 @@ export default function StationFormPage() {
 
   const deleteStation = async () => {
     try {
-      if (window.confirm("Are you sure you want to delete this station?")) {
-        const res = await fetch(`/api/station/${params.id}`, {
-          method: "DELETE",
-        });
-        router.push("/dashboard");
-        router.refresh();
-      }
+      const res = await fetch(`/api/station/${params.id}`, {
+        method: "DELETE",
+      });
+      router.push("/dashboard");
+      router.refresh();
     } catch (error: any) {
       setError(error);
     }
@@ -120,6 +129,7 @@ export default function StationFormPage() {
         <div className="grid lg:grid-cols-2 gap-x-2">
           <div className="flex flex-col p-2">
             <label htmlFor="stationName">Station name:</label>
+            <PopupMessage status={popup} request={request}></PopupMessage>
             <input
               type="text"
               value={newStation.stationName}
@@ -183,7 +193,7 @@ export default function StationFormPage() {
             {params.id && (
               <button
                 className=" bg-red-500 hover:bg-red-600 transition-colors py-2 px-6 rounded-md"
-                onClick={deleteStation}
+                onClick={confirmDelete}
                 type="button"
               >
                 Delete
