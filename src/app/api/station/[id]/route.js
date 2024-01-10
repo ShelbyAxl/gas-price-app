@@ -27,7 +27,6 @@ export async function GET(request, { params }) {
 export async function DELETE(request, { params }) {
   try {
     const stationDeleted = await Station.findByIdAndDelete(params.id);
-    console.log(params.id)
 
     if (!stationDeleted)
       return NextResponse.json(
@@ -44,7 +43,7 @@ export async function DELETE(request, { params }) {
     });
   } catch (error) {
     return NextResponse.json(error.message, {
-      status: 400,
+      status: 500,
     });
   }
 }
@@ -52,6 +51,73 @@ export async function DELETE(request, { params }) {
 export async function PUT(request, { params }) {
   try {
     const data = await request.json();
+    let isVoid = false;
+    Object.keys(data).forEach((key) => {
+      if (!data[key]) isVoid = true;
+    });
+
+    if (isVoid)
+      return NextResponse.json(
+        {
+          message: "Missing data to enter!",
+        },
+        {
+          status: 400,
+        }
+      );
+
+    const stations = await Station.find({ _id: { $ne: params.id } });
+    const anotherName = () => {
+      let isFind = false;
+      Object.values(stations).forEach((stations) => {
+        if (data.stationName == stations.stationName) isFind = true;
+      });
+      return isFind;
+    };
+    if (anotherName())
+      return NextResponse.json(
+        {
+          message: "Station already exist!",
+        },
+        {
+          status: 400,
+        }
+      );
+
+    const anotherAddress = () => {
+      let isFind = false;
+      Object.values(stations).forEach((station) => {
+        if (data.address == station.address) isFind = true;
+      });
+      return isFind;
+    };
+    if (anotherAddress())
+      return NextResponse.json(
+        {
+          message: "Address already exist!",
+        },
+        {
+          status: 400,
+        }
+      );
+
+    const anotherPhone = () => {
+      let isFind = false;
+      Object.values(stations).forEach((station) => {
+        if (data.phoneNumber == station.phoneNumber) isFind = true;
+      });
+      return isFind;
+    };
+    if (anotherPhone())
+      return NextResponse.json(
+        {
+          message: "Phone station already exist!",
+        },
+        {
+          status: 400,
+        }
+      );
+
     const stationUpdated = await Station.findByIdAndUpdate(params.id, data, {
       new: true,
     });
@@ -69,7 +135,7 @@ export async function PUT(request, { params }) {
     return NextResponse.json(stationUpdated);
   } catch (error) {
     return NextResponse.json(error.message, {
-      status: 400,
+      status: 500,
     });
   }
 }

@@ -21,6 +21,8 @@ export default function StationFormPage() {
     gasPriceRed: "",
   });
 
+  const [error, setError] = useState("");
+
   const getStation = async () => {
     const res = await fetch(`/api/station/${params.id}`);
     const data = await res.json();
@@ -43,32 +45,51 @@ export default function StationFormPage() {
           "Content-Type": "application/json",
         },
       });
+      const resJSON = await res.json();
+      if (!res.ok) {
+        setError(resJSON.message);
+        return;
+      }
       router.push("/dashboard");
       router.refresh();
     } catch (error: any) {
-      console.log(error.message);
+      setError(error);
+      return;
     }
   };
 
   const updateStation = async () => {
-    const res = await fetch(`/api/station/${params.id}`, {
-      method: "PUT",
-      body: JSON.stringify(newStation),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    router.push("/dashboard");
-    router.refresh();
+    try {
+      const res = await fetch(`/api/station/${params.id}`, {
+        method: "PUT",
+        body: JSON.stringify(newStation),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const resJSON = await res.json();
+      if (!res.ok) {
+        setError(resJSON.message);
+        return;
+      }
+      router.push("/dashboard");
+      router.refresh();
+    } catch (error: any) {
+      setError(error.message);
+    }
   };
 
   const deleteStation = async () => {
-    if (window.confirm("Are you sure you want to delete this station?")) {
-      const res = await fetch(`/api/station/${params.id}`, {
-        method: "DELETE",
-      });
-      router.push("/dashboard");
-      router.refresh();
+    try {
+      if (window.confirm("Are you sure you want to delete this station?")) {
+        const res = await fetch(`/api/station/${params.id}`, {
+          method: "DELETE",
+        });
+        router.push("/dashboard");
+        router.refresh();
+      }
+    } catch (error: any) {
+      setError(error);
     }
   };
 
@@ -88,14 +109,14 @@ export default function StationFormPage() {
     if (params.id) {
       getStation();
     }
-  });
+  }, []);
 
   return (
-    <div className="container">
-      <h1 className="font-bold text-3xl">
-        {params.id ? "Update" : "New"} Station
-      </h1>
+    <div className="h-[calc(100vh-14em)] px-5 lg:overflow-auto overflow-y-scroll overflow-x-hidden">
       <form onSubmit={handleSubmit}>
+        <h1 className="font-bold text-3xl">
+          {params.id ? "Update" : "New"} Station
+        </h1>
         <div className="grid lg:grid-cols-2 gap-x-2">
           <div className="flex flex-col p-2">
             <label htmlFor="stationName">Station name:</label>
@@ -179,6 +200,11 @@ export default function StationFormPage() {
           </div>
         </div>
       </form>
+      <div className="my-8">
+        {error && (
+          <span className="bg-red-600 py-4 px-4 rounded-md">{error}</span>
+        )}
+      </div>
     </div>
   );
 }
