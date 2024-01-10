@@ -33,7 +33,7 @@ async function DashboardPage() {
         <p>Add station</p>
       </div>
       {stations.length != 0 ? (
-        <div className="px-10 py-3 gap-y-2 lg:w-11/12 lg:overflow-auto overflow-y-scroll overflow-x-hidden h-[24rem]">
+        <div className="px-10 py-3 gap-y-2 lg:w-full lg:overflow-auto overflow-y-scroll overflow-x-hidden h-[29rem]">
           {stations.map((station) => (
             <StationOwner station={station} key={station._id} />
           ))}

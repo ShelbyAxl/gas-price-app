@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </SignOut>
           </ul>
         </section>
-        <div className="flex flex-col w-10/12 p-5 gap-4">{children}</div>
+        <div className="flex flex-col w-10/12 px-5 gap-4">{children}</div>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <Navbar />
-        <main className="container pt-20">
+        <main className="w-full pt-20">
           <Providers>{children}</Providers>
         </main>
       </body>
