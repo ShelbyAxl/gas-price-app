@@ -2,7 +2,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import prisma from "@/libs/prisma";
 import bcrypt from "bcrypt";
-//comentario para commit
+
 export const authOptions = {
   providers: [
     CredentialsProvider({
@@ -45,17 +45,17 @@ export const authOptions = {
   },
 
   callbacks: {
-    jwt({ account, token, user, profile, session }){
-      if(user) token.user = user;
-      return token
+    jwt({ account, token, user, profile, session }) {
+      if (user) token.user = user;
+      return token;
     },
-    session({ session, token }){
+    session({ session, token }) {
       session.user = token.user;
       return session;
-    }
+    },
   },
 
-  secret: "40219da3e8aa469e4b0ec9381cf767cf"
+  secret: "40219da3e8aa469e4b0ec9381cf767cf",
 };
 
 const handler = NextAuth(authOptions);
