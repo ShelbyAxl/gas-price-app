@@ -26,14 +26,14 @@ async function DashboardPage() {
 
   return (
     <div className="flex flex-col lg:flex-row justify-between h-screen">
-      <div className="flex flex-col lg:w-2/12 gap-y-1 items-center justify-center">
+      <div className="flex flex-col lg:w-2/12 gap-y-1 items-center justify-center p-2 lg:h-[25rem]">
         <Link href="/dashboard/station/new">
           <Image src={Add} width={50} height={50} alt="" />
         </Link>
         <p>Add station</p>
       </div>
       {stations.length != 0 ? (
-        <div className="px-10 py-3 gap-y-2 lg:w-full lg:overflow-auto overflow-y-scroll overflow-x-hidden h-[29rem]">
+        <div className="px-10 py-3 gap-y-2 lg:w-full lg:overflow-auto overflow-y-scroll overflow-x-hidden h-[25rem]">
           {stations.map((station) => (
             <StationOwner station={station} key={station._id} />
           ))}
