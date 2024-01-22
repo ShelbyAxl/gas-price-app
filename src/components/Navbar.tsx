@@ -9,7 +9,7 @@ async function Navbar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <nav className="bg-[#0078FE] p-3 w-full fixed">
+    <nav className="bg-[#223843] p-3 w-full fixed">
       <div className="flex justify-between container mx-auto">
         <Link href={"/"} className="flex">
           <Image src={Icon} width={70} height={70} priority={true} alt="" />

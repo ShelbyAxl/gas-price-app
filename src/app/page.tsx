@@ -12,7 +12,17 @@ export const metadata: Metadata = {
 async function loadStation() {
   ConnectionDB();
   const stations = await Station.find();
-  return stations;
+  const data = stations.map((station) => {
+    return {
+      _id: station._id.toString(),
+      stationName: station.stationName,
+      ownerId: station.ownerId,
+      address: station.address,
+      gasPriceGreen: station.gasPriceGreen,
+      gasPriceRed: station.gasPriceRed
+    };
+  });
+  return data;
 }
 
 async function HomePage() {
@@ -20,9 +30,14 @@ async function HomePage() {
   return (
     <div className="container mx-auto py-3 px-7 mt-4">
       <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-        {stations.map((station) => (
-          <StationCard station={station} key={station._id} />
-        ))}
+        {stations.map((station, index) => (
+            <StationCard
+              station={station}
+              key={station._id}
+              delay={index * 100}
+            />
+          )
+        )}
       </div>
     </div>
   );
