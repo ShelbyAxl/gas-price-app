@@ -13,7 +13,7 @@ function PopupMessage({ status, request }) {
 
   return (
     <div className={status}>
-      <div className="z-[2] absolute w-full h-full top-0 left-0 bg-neutral-900 opacity-60 justify-center items-center"></div>
+      <div className="z-[2] absolute w-full h-full top-0 left-0 backdrop-blur-sm justify-center items-center"></div>
       <div className="z-[3] flex absolute justify-center items-center">
         <div className="bg-gray-800 flex flex-col px-14 py-5 lg:py-10 lg:px-16 rounded-lg items-center">
           <svg
